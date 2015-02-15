@@ -1,0 +1,13 @@
+Query file:
+   1. lubm-query: test query for LUBM
+   2. chebi-query: test query for CHEBI
+   3. test-query: test query for examples in our paper
+
+Every Benchmark has three file:
+   respectively are normal, in priority and weight.
+CHEBI benchmark:
+   the first number in file name means the number of chemical classes an molecule and the second number represent the number of TBox rules which cause inconsistent, where 2 means 3 rules and 3 means 5.
+LUBM benchmark:
+   the first number in file name means the size of ABox and second number represent the number of TBox rules which cause inconsistent, where 2 means 3 rules and 3 means 5.
+LUBM TBox:
+   There are two kinds of TBox and their priority and weight versions.

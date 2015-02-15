@@ -1,0 +1,1272 @@
+degreefrom(X,Y) :- doctoraldegreefrom(X,Y).
+7
+memberof(X,Y) :- worksfor(X,Y).
+5
+degreefrom(X,Y) :- mastersdegreefrom(X,Y).
+10
+member(Y,X) :- memberof(X,Y).
+3
+memberof(Y,X) :- member(X,Y).
+3
+degreefrom(X,Y) :- undergraduatedegreefrom(X,Y).
+9
+hasalumnus(Y,X) :- degreefrom(X,Y).
+3
+degreefrom(Y,X) :- hasalumnus(X,Y).
+10
+worksfor(X,Y) :- headof(X,Y).
+5
+professor(X) :- tenured(X,Y).
+5
+person(X) :- degreefrom(X,Y).
+3
+faculty(X) :- professor(X).
+5
+faculty(X) :- postdoc(X).
+7
+professor(X) :- dean(X).
+6
+publication(X) :- publicationdate(X,Y).
+4
+person(X) :- title(X,Y).
+6
+software(X) :- softwaredocumentation(X,Y).
+9
+student(X) :- person(X), takescourse(X,Y), course(Y).
+8
+takescourse(X,f(X)) :- student(X).
+4
+course(f(X)) :- student(X).
+8
+person(X) :- student(X).
+4
+publication(X) :- publicationresearch(X,Y).
+8
+chair(X) :- person(X), headof(X,Y), department(Y).
+9
+headof(X,f(X)) :- chair(X).
+9
+department(f(X)) :- chair(X).
+4
+person(X) :- chair(X).
+4
+publication(X) :- publicationauthor(X,Y).
+6
+organization(X) :- affiliateof(X,Y).
+6
+faculty(X) :- lecturer(X).
+9
+university(Y) :- degreefrom(X,Y).
+5
+university(Y) :- undergraduatedegreefrom(X,Y).
+6
+person(Y) :- publicationauthor(X,Y).
+9
+course(Y) :- teachingassistantof(X,Y).
+10
+person(X) :- advisor(X,Y).
+10
+university(X) :- hasalumnus(X,Y).
+8
+professor(X) :- visitingprofessor(X).
+9
+professor(X) :- assistantprofessor(X).
+6
+organization(X) :- affiliatedorganizationof(X,Y).
+7
+article(X) :- technicalreport(X).
+3
+professor(Y) :- advisor(X,Y).
+8
+publication(X) :- book(X).
+4
+dean(X) :- headof(X,Y), college(Y).
+5
+headof(X,f(X)) :- dean(X).
+5
+college(f(X)) :- dean(X).
+3
+internal_all_0(X) :- thing(X).
+7
+publication(Y) :- orgpublication(X,Y).
+3
+university(Y) :- mastersdegreefrom(X,Y).
+5
+university(Y) :- doctoraldegreefrom(X,Y).
+9
+undergraduatestudent(X) :- researchassistant(X).
+0
+article(X) :- journalarticle(X).
+7
+course(Y) :- listedcourse(X,Y).
+9
+course(Y) :- teacherof(X,Y).
+7
+faculty(X) :- teacherof(X,Y).
+4
+person(X) :- emailaddress(X,Y).
+4
+organization(X) :- program(X).
+9
+work(X) :- course(X).
+6
+person(X) :- researchassistant(X).
+5
+publication(X) :- unofficialpublication(X).
+8
+person(X) :- graduatestudent(X).
+5
+organization(Y) :- affiliatedorganizationof(X,Y).
+3
+organization(X) :- university(X).
+7
+student(X) :- undergraduatestudent(X).
+8
+work(X) :- research(X).
+7
+article(X) :- conferencepaper(X).
+3
+worksfor(X,f(X)) :- researchassistant(X), not professor(X).
+7
+researchgroup(f(X)) :- researchassistant(X).
+2
+organization(X) :- researchgroup(X).
+9
+professor(X) :- chair(X).
+6
+director(X) :- person(X), headof(X,Y), program(Y).
+10
+headof(X,f(X)) :- director(X).
+2
+program(f(X)) :- director(X).
+2
+person(X) :- director(X).
+5
+employee(X) :- administrativestaff(X).
+4
+employee(X) :- person(X), worksfor(X,Y), not student(X). 
+6
+worksfor(X,f(X)) :- employee(X).
+10
+worksfor(X,f(X)) :- teachingassistant(X), not student(X).
+6
+organization(f(X)) :- employee(X).
+8
+person(X) :- employee(X).
+10
+organization(X) :- member(X,Y).
+8
+administrativestaff(X) :- systemsstaff(X).
+5
+researchgroup(X) :- researchproject(X,Y).
+8
+organization(X) :- department(X).
+6
+organization(X) :- internal_all_1(X).
+9
+publication(Y) :- softwaredocumentation(X,Y).
+7
+person(X) :- telephone(X,Y).
+7
+organization(X) :- orgpublication(X,Y).
+7
+person(X) :- doctoraldegreefrom(X,Y).
+7
+organization(X) :- institute(X).
+4
+person(Y) :- affiliateof(X,Y).
+6
+schedule(X) :- listedcourse(X,Y).
+6
+person(Y) :- hasalumnus(X,Y).
+4
+publication(X) :- specification(X).
+8
+publication(X) :- software(X).
+8
+person(X) :- mastersdegreefrom(X,Y).
+5
+person(X) :- undergraduatedegreefrom(X,Y).
+5
+teachingassistant(X) :- teachingassistantof(X,Y).
+5
+administrativestaff(X) :- clericalstaff(X).
+5
+research(Y) :- publicationresearch(X,Y).
+4
+organization(X) :- college(X).
+7
+publication(X) :- article(X).
+5
+professor(X) :- associateprofessor(X).
+8
+person(Y) :- member(X,Y).
+4
+course(X) :- graduatecourse(X).
+10
+professor(X) :- fullprofessor(X).
+6
+publication(X) :- manual(X).
+10
+software(X) :- softwareversion(X,Y).
+5
+teachingassistant(X) :- person(X), teachingassistantof(X,Y), course(Y).
+6
+teachingassistantof(X,f(X)) :- teachingassistant(X).
+10
+course(f(X)) :- teachingassistant(X).
+9
+person(X) :- teachingassistant(X).
+7
+person(X) :- age(X,Y).
+8
+takescourse(X,f(X)) :- graduatestudent(X).
+7
+graduatecourse(f(X)) :- graduatestudent(X).
+9
+research(Y) :- researchproject(X,Y).
+9
+employee(X) :- faculty(X).
+9
+internal_all_4(Y) :- internal_all_3(X), suborganizationof(X,Y).
+8
+internal_all_3(X) :- internal_all_4(X).
+8
+internal_all_2(X) :- internal_all_4(X).
+6
+internal_all_2(Y) :- internal_all_0(X), suborganizationof(X,Y).
+6
+internal_all_0(X) :- internal_all_2(X).
+7
+internal_all_3(X) :- internal_all_0(X).
+10
+organization(X) :- internal_all_2(X).
+4
+internal_all_6(X) :- suborganizationof(X,Y), internal_all_7(Y).
+6
+internal_all_7(X) :- internal_all_6(X).
+7
+internal_all_7(X) :- internal_all_5(X).
+8
+internal_all_1(X) :- suborganizationof(X,Y), internal_all_5(Y).
+5
+internal_all_5(X) :- internal_all_1(X).
+9
+internal_all_1(X) :- internal_all_6(X).
+9
+internal_all_5(X) :- thing(X).
+7
+ :- undergraduatestudent(X), researchassistant(X).
+0
+ :- assistantprofessor(X), associateprofessor(X).
+0
+ :- teachingassistant(X), undergraduatestudent(X). 
+1
+ :- worksfor(X,Y), graduatestudent(X).
+0
+ :- professor(X), student(X).
+0
+ :- dean(X), student(X).
+2
+ :- dean(X), associateprofessor(X).
+1
+ :- worksfor(X,Y), assistantprofessor(Y). 
+0
+ :- software(X), publication(X).
+0
+subj18student(department2_university0_graduatestudent102).
+name(department7_university0_associateprofessor6_publication3,publication3_rdf_plainliteral).
+emailaddress(department4_university0_undergraduatestudent245,undergraduatestudent245_department4_university0_edu_rdf_plainliteral).
+telephone(department12_university0_undergraduatestudent149,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department0_university0_associateprofessor10_publication0,department0_university0_graduatestudent133).
+publicationauthor(department8_university0_fullprofessor7_publication10,department8_university0_fullprofessor7).
+publicationauthor(department2_university0_fullprofessor5_publication2,department2_university0_graduatestudent29).
+takescourse(department1_university0_undergraduatestudent158,department1_university0_course20).
+name(department13_university0_fullprofessor1_publication9,publication9_rdf_plainliteral).
+subj18student(department11_university0_graduatestudent3).
+memberof(department11_university0_undergraduatestudent173,department11_university0).
+takescourse(department14_university0_undergraduatestudent336,department14_university0_course40).
+takescourse(department8_university0_graduatestudent35,department8_university0_graduatecourse44).
+undergraduatestudent(department1_university0_undergraduatestudent221).
+advisor(department12_university0_graduatestudent84,department12_university0_associateprofessor9).
+takescourse(department4_university0_undergraduatestudent125,department4_university0_course37).
+telephone(department1_university0_undergraduatestudent315,xxx_xxx_xxxx_rdf_plainliteral).
+publication(department4_university0_associateprofessor8_publication13).
+publicationauthor(department11_university0_assistantprofessor0_publication0,department11_university0_graduatestudent64).
+emailaddress(department7_university0_graduatestudent71,graduatestudent71_department7_university0_edu_rdf_plainliteral).
+takescourse(department3_university0_graduatestudent33,department3_university0_graduatecourse40).
+name(department2_university0_graduatecourse38,graduatecourse38_rdf_plainliteral).
+subj13student(department13_university0_undergraduatestudent126).
+takescourse(department11_university0_undergraduatestudent202,department11_university0_course44).
+publication(department0_university0_associateprofessor13_publication12).
+publication(department7_university0_associateprofessor1_publication9).
+undergraduatestudent(department0_university0_undergraduatestudent465).
+course(department6_university0_course17).
+takescourse(department1_university0_graduatestudent22,department1_university0_graduatecourse35).
+takescourse(department3_university0_undergraduatestudent107,department3_university0_course32).
+undergraduatestudent(department11_university0_undergraduatestudent348).
+publicationauthor(department11_university0_associateprofessor9_publication6,department11_university0_associateprofessor9).
+takescourse(department8_university0_undergraduatestudent48,department8_university0_course11).
+telephone(department6_university0_undergraduatestudent204,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department9_university0_graduatestudent125,graduatestudent125_department9_university0_edu_rdf_plainliteral).
+takescourse(department11_university0_undergraduatestudent192,department11_university0_course4).
+takescourse(department10_university0_undergraduatestudent316,department10_university0_course41).
+publicationauthor(department5_university0_fullprofessor0_publication14,department5_university0_fullprofessor0).
+teacherof(department0_university0_lecturer5,department0_university0_course59).
+emailaddress(department6_university0_graduatestudent87,graduatestudent87_department6_university0_edu_rdf_plainliteral).
+publicationauthor(department3_university0_associateprofessor2_publication13,department3_university0_associateprofessor2).
+telephone(department9_university0_graduatestudent50,xxx_xxx_xxxx_rdf_plainliteral).
+name(department6_university0_fullprofessor6_publication3,publication3_rdf_plainliteral).
+emailaddress(department8_university0_undergraduatestudent112,undergraduatestudent112_department8_university0_edu_rdf_plainliteral).
+publicationauthor(department12_university0_fullprofessor7_publication15,department12_university0_graduatestudent19).
+name(department3_university0_graduatecourse23,graduatecourse23_rdf_plainliteral).
+telephone(department5_university0_undergraduatestudent92,xxx_xxx_xxxx_rdf_plainliteral).
+doctoraldegreefrom(department11_university0_associateprofessor1,university80).
+emailaddress(department1_university0_undergraduatestudent299,undergraduatestudent299_department1_university0_edu_rdf_plainliteral).
+name(department8_university0_undergraduatestudent235,undergraduatestudent235_rdf_plainliteral).
+takescourse(department13_university0_undergraduatestudent292,department13_university0_course41).
+takescourse(department12_university0_undergraduatestudent489,department12_university0_course34).
+teacherof(department8_university0_assistantprofessor6,department8_university0_graduatecourse41).
+memberof(department13_university0_undergraduatestudent150,department13_university0).
+telephone(department4_university0_graduatestudent147,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department7_university0_undergraduatestudent283,department7_university0_course53).
+telephone(department8_university0_undergraduatestudent22,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department4_university0_graduatestudent110,graduatestudent110_department4_university0_edu_rdf_plainliteral).
+name(department11_university0_undergraduatestudent376,undergraduatestudent376_rdf_plainliteral).
+takescourse(department7_university0_undergraduatestudent319,department7_university0_course51).
+takescourse(department14_university0_undergraduatestudent331,department14_university0_course45).
+graduatestudent(department9_university0_graduatestudent5).
+subj18student(department11_university0_undergraduatestudent95).
+emailaddress(department8_university0_undergraduatestudent186,undergraduatestudent186_department8_university0_edu_rdf_plainliteral).
+name(department1_university0_assistantprofessor4_publication8,publication8_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent384,department12_university0_course50).
+name(department1_university0_graduatecourse40,graduatecourse40_rdf_plainliteral).
+teacherof(department3_university0_fullprofessor7,department3_university0_course11).
+emailaddress(department13_university0_undergraduatestudent140,undergraduatestudent140_department13_university0_edu_rdf_plainliteral).
+publicationauthor(department13_university0_assistantprofessor7_publication0,department13_university0_graduatestudent107).
+name(department4_university0_undergraduatestudent264,undergraduatestudent264_rdf_plainliteral).
+publicationauthor(department12_university0_associateprofessor11_publication0,department12_university0_graduatestudent68).
+takescourse(department0_university0_undergraduatestudent106,department0_university0_course1).
+takescourse(department9_university0_undergraduatestudent467,department9_university0_course2).
+graduatestudent(department4_university0_graduatestudent54).
+publication(department6_university0_fullprofessor7_publication15).
+takescourse(department9_university0_undergraduatestudent140,department9_university0_course5).
+publication(department14_university0_associateprofessor5_publication13).
+advisor(department12_university0_undergraduatestudent467,department12_university0_associateprofessor11).
+course(department0_university0_course31).
+graduatestudent(department1_university0_graduatestudent30).
+telephone(department6_university0_undergraduatestudent24,xxx_xxx_xxxx_rdf_plainliteral).
+teacherof(department0_university0_assistantprofessor8,department0_university0_course49).
+telephone(department7_university0_undergraduatestudent134,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent397,department14_university0_course34).
+undergraduatestudent(department7_university0_undergraduatestudent237).
+takescourse(department3_university0_undergraduatestudent171,department3_university0_course12).
+subj17student(department10_university0_graduatestudent140).
+memberof(department9_university0_undergraduatestudent143,department9_university0).
+emailaddress(department12_university0_undergraduatestudent214,undergraduatestudent214_department12_university0_edu_rdf_plainliteral).
+undergraduatestudent(department7_university0_undergraduatestudent268).
+publicationauthor(department6_university0_associateprofessor1_publication3,department6_university0_graduatestudent6).
+telephone(department6_university0_undergraduatestudent150,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department8_university0_associateprofessor0_publication6,department8_university0_graduatestudent16).
+subj18student(department0_university0_undergraduatestudent364).
+takescourse(department5_university0_undergraduatestudent129,department5_university0_course45).
+name(department5_university0_graduatestudent2,graduatestudent2_rdf_plainliteral).
+name(department7_university0_undergraduatestudent71,undergraduatestudent71_rdf_plainliteral).
+undergraduatestudent(department14_university0_undergraduatestudent368).
+takescourse(department0_university0_undergraduatestudent53,department0_university0_course2).
+takescourse(department9_university0_undergraduatestudent343,department9_university0_course16).
+teacherof(department0_university0_fullprofessor7,department0_university0_course11).
+name(department13_university0_assistantprofessor0_publication9,publication9_rdf_plainliteral).
+publicationauthor(department7_university0_fullprofessor3_publication1,department7_university0_graduatestudent105).
+subj18student(department0_university0_undergraduatestudent348).
+emailaddress(department4_university0_graduatestudent33,graduatestudent33_department4_university0_edu_rdf_plainliteral).
+undergraduatestudent(department13_university0_undergraduatestudent82).
+takescourse(department6_university0_undergraduatestudent5,department6_university0_course41).
+emailaddress(department2_university0_associateprofessor0,associateprofessor0_department2_university0_edu_rdf_plainliteral).
+name(department12_university0_associateprofessor2_publication6,publication6_rdf_plainliteral).
+emailaddress(department0_university0_undergraduatestudent127,undergraduatestudent127_department0_university0_edu_rdf_plainliteral).
+takescourse(department10_university0_undergraduatestudent237,department10_university0_course36).
+name(department8_university0_undergraduatestudent90,undergraduatestudent90_rdf_plainliteral).
+subj13course(department13_university0_course39).
+researchassistant(department11_university0_graduatestudent70).
+subj1student(department6_university0_undergraduatestudent81).
+name(department14_university0_undergraduatestudent340,undergraduatestudent340_rdf_plainliteral).
+telephone(department12_university0_undergraduatestudent286,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department12_university0_graduatestudent102,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department7_university0_undergraduatestudent40,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department3_university0_graduatestudent82,xxx_xxx_xxxx_rdf_plainliteral).
+subj2student(department1_university0_undergraduatestudent67).
+graduatecourse(department10_university0_graduatecourse40).
+subj18student(department0_university0_undergraduatestudent378).
+university(university624).
+memberof(department4_university0_undergraduatestudent90,department4_university0).
+subj18student(department2_university0_undergraduatestudent129).
+telephone(department8_university0_undergraduatestudent275,xxx_xxx_xxxx_rdf_plainliteral).
+subj2student(department8_university0_undergraduatestudent69).
+subj12student(department3_university0_graduatestudent56).
+publicationauthor(department13_university0_fullprofessor4_publication12,department13_university0_fullprofessor4).
+memberof(department9_university0_undergraduatestudent517,department9_university0).
+takescourse(department8_university0_graduatestudent129,department8_university0_graduatecourse12).
+subj2student(department8_university0_graduatestudent114).
+publicationauthor(department1_university0_fullprofessor8_publication14,department1_university0_fullprofessor8).
+takescourse(department5_university0_undergraduatestudent98,department5_university0_course41).
+telephone(department11_university0_undergraduatestudent167,xxx_xxx_xxxx_rdf_plainliteral).
+undergraduatedegreefrom(department14_university0_associateprofessor1,university906).
+subj18course(department11_university0_graduatecourse49).
+telephone(department2_university0_undergraduatestudent266,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department0_university0_graduatestudent90,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department8_university0_undergraduatestudent4,undergraduatestudent4_department8_university0_edu_rdf_plainliteral).
+emailaddress(department1_university0_undergraduatestudent194,undergraduatestudent194_department1_university0_edu_rdf_plainliteral).
+telephone(department2_university0_undergraduatestudent40,xxx_xxx_xxxx_rdf_plainliteral).
+subj18student(department11_university0_undergraduatestudent127).
+subj2student(department5_university0_undergraduatestudent101).
+graduatestudent(department3_university0_graduatestudent93).
+undergraduatedegreefrom(department9_university0_associateprofessor3,university517).
+memberof(department7_university0_undergraduatestudent5,department7_university0).
+publicationauthor(department14_university0_associateprofessor6_publication15,department14_university0_associateprofessor6).
+emailaddress(department8_university0_undergraduatestudent78,undergraduatestudent78_department8_university0_edu_rdf_plainliteral).
+emailaddress(department0_university0_graduatestudent35,graduatestudent35_department0_university0_edu_rdf_plainliteral).
+takescourse(department7_university0_undergraduatestudent70,department7_university0_course43).
+subj13student(department14_university0_undergraduatestudent79).
+memberof(department10_university0_undergraduatestudent358,department10_university0).
+researchgroup(department12_university0_researchgroup15).
+name(department3_university0_graduatecourse2,graduatecourse2_rdf_plainliteral).
+undergraduatestudent(department0_university0_undergraduatestudent368).
+university(university802).
+takescourse(department5_university0_undergraduatestudent40,department5_university0_course31).
+advisor(department14_university0_undergraduatestudent28,department14_university0_associateprofessor0).
+subj18student(department11_university0_graduatestudent67).
+takescourse(department9_university0_undergraduatestudent277,department9_university0_course18).
+worksfor(department5_university0_associateprofessor6,department5_university0).
+subj1student(department6_university0_undergraduatestudent28).
+undergraduatestudent(department4_university0_undergraduatestudent108).
+takescourse(department4_university0_undergraduatestudent33,department4_university0_course12).
+name(department1_university0_course6,course6_rdf_plainliteral).
+publication(department5_university0_associateprofessor3_publication6).
+takescourse(department14_university0_graduatestudent95,department14_university0_graduatecourse33).
+publicationauthor(department0_university0_associateprofessor13_publication4,department0_university0_graduatestudent107).
+takescourse(department14_university0_undergraduatestudent98,department14_university0_course2).
+takescourse(department0_university0_graduatestudent100,department0_university0_graduatecourse0).
+publication(department7_university0_fullprofessor6_publication10).
+name(department12_university0_undergraduatestudent464,undergraduatestudent464_rdf_plainliteral).
+publicationauthor(department1_university0_fullprofessor4_publication13,department1_university0_graduatestudent53).
+takescourse(department1_university0_undergraduatestudent64,department1_university0_course15).
+name(department6_university0_undergraduatestudent130,undergraduatestudent130_rdf_plainliteral).
+telephone(department7_university0_undergraduatestudent131,xxx_xxx_xxxx_rdf_plainliteral).
+publication(department10_university0_fullprofessor3_publication5).
+telephone(department12_university0_undergraduatestudent31,xxx_xxx_xxxx_rdf_plainliteral).
+name(department9_university0_graduatestudent25,graduatestudent25_rdf_plainliteral).
+publicationauthor(department4_university0_lecturer0_publication0,department4_university0_lecturer0).
+publicationauthor(department13_university0_assistantprofessor8_publication7,department13_university0_assistantprofessor8).
+takescourse(department0_university0_graduatestudent54,department0_university0_graduatecourse18).
+publicationauthor(department10_university0_fullprofessor4_publication13,department10_university0_fullprofessor4).
+takescourse(department14_university0_undergraduatestudent241,department14_university0_course6).
+graduatestudent(department13_university0_graduatestudent71).
+publicationauthor(department7_university0_fullprofessor1_publication16,department7_university0_fullprofessor1).
+publicationauthor(department12_university0_associateprofessor11_publication0,department12_university0_associateprofessor11).
+takescourse(department9_university0_undergraduatestudent119,department9_university0_course14).
+telephone(department5_university0_graduatestudent62,xxx_xxx_xxxx_rdf_plainliteral).
+subj2student(department12_university0_undergraduatestudent420).
+publicationauthor(department9_university0_fullprofessor6_publication4,department9_university0_graduatestudent101).
+telephone(department5_university0_undergraduatestudent12,xxx_xxx_xxxx_rdf_plainliteral).
+subj2student(department12_university0_graduatestudent125).
+takescourse(department12_university0_graduatestudent47,department12_university0_graduatecourse18).
+undergraduatedegreefrom(department5_university0_graduatestudent69,university652).
+publicationauthor(department0_university0_fullprofessor5_publication10,department0_university0_fullprofessor5).
+telephone(department8_university0_undergraduatestudent325,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department14_university0_undergraduatestudent104,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department4_university0_assistantprofessor10_publication2,department4_university0_assistantprofessor10).
+publicationauthor(department12_university0_fullprofessor3_publication11,department12_university0_fullprofessor3).
+name(department13_university0_lecturer4,lecturer4_rdf_plainliteral).
+undergraduatedegreefrom(department4_university0_graduatestudent102,university563).
+takescourse(department10_university0_undergraduatestudent285,department10_university0_course2).
+subj18student(department0_university0_undergraduatestudent289).
+takescourse(department3_university0_undergraduatestudent64,department3_university0_course22).
+takescourse(department1_university0_undergraduatestudent267,department1_university0_course24).
+emailaddress(department10_university0_undergraduatestudent286,undergraduatestudent286_department10_university0_edu_rdf_plainliteral).
+emailaddress(department14_university0_undergraduatestudent265,undergraduatestudent265_department14_university0_edu_rdf_plainliteral).
+name(department0_university0_fullprofessor7_publication12,publication12_rdf_plainliteral).
+emailaddress(department5_university0_undergraduatestudent30,undergraduatestudent30_department5_university0_edu_rdf_plainliteral).
+subj12student(department3_university0_undergraduatestudent85).
+takescourse(department11_university0_undergraduatestudent256,department11_university0_course51).
+publicationauthor(department7_university0_fullprofessor0_publication18,department7_university0_fullprofessor0).
+takescourse(department2_university0_graduatestudent18,department2_university0_graduatecourse16).
+graduatestudent(department14_university0_graduatestudent50).
+publication(department9_university0_fullprofessor9_publication3).
+publication(department7_university0_fullprofessor2_publication1).
+publicationauthor(department11_university0_fullprofessor4_publication9,department11_university0_graduatestudent63).
+name(department5_university0_associateprofessor8,associateprofessor8_rdf_plainliteral).
+publicationauthor(department2_university0_fullprofessor7_publication2,department2_university0_fullprofessor7).
+graduatestudent(department11_university0_graduatestudent42).
+takescourse(department7_university0_undergraduatestudent251,department7_university0_course12).
+graduatestudent(department1_university0_graduatestudent2).
+graduatestudent(department2_university0_graduatestudent74).
+telephone(department10_university0_graduatestudent97,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department4_university0_fullprofessor7_publication6,department4_university0_graduatestudent42).
+telephone(department8_university0_undergraduatestudent63,xxx_xxx_xxxx_rdf_plainliteral).
+memberof(department2_university0_undergraduatestudent3,department2_university0).
+emailaddress(department8_university0_undergraduatestudent68,undergraduatestudent68_department8_university0_edu_rdf_plainliteral).
+takescourse(department4_university0_undergraduatestudent11,department4_university0_course35).
+undergraduatestudent(department11_university0_undergraduatestudent312).
+publication(department13_university0_fullprofessor3_publication10).
+emailaddress(department9_university0_undergraduatestudent291,undergraduatestudent291_department9_university0_edu_rdf_plainliteral).
+emailaddress(department3_university0_graduatestudent106,graduatestudent106_department3_university0_edu_rdf_plainliteral).
+takescourse(department3_university0_undergraduatestudent284,department3_university0_course2).
+memberof(department3_university0_graduatestudent48,department3_university0).
+subj2student(department1_university0_undergraduatestudent1).
+undergraduatedegreefrom(department3_university0_graduatestudent68,university267).
+publicationauthor(department2_university0_fullprofessor0_publication13,department2_university0_fullprofessor0).
+memberof(department11_university0_graduatestudent140,department11_university0).
+emailaddress(department7_university0_undergraduatestudent32,undergraduatestudent32_department7_university0_edu_rdf_plainliteral).
+publicationauthor(department13_university0_associateprofessor0_publication10,department13_university0_graduatestudent103).
+takescourse(department9_university0_undergraduatestudent175,department9_university0_course22).
+advisor(department1_university0_graduatestudent75,department1_university0_assistantprofessor0).
+emailaddress(department11_university0_graduatestudent29,graduatestudent29_department11_university0_edu_rdf_plainliteral).
+emailaddress(department12_university0_undergraduatestudent87,undergraduatestudent87_department12_university0_edu_rdf_plainliteral).
+publicationauthor(department14_university0_fullprofessor3_publication3,department14_university0_graduatestudent17).
+subj2student(department12_university0_undergraduatestudent191).
+subj18student(department2_university0_undergraduatestudent97).
+memberof(department11_university0_undergraduatestudent174,department11_university0).
+takescourse(department10_university0_undergraduatestudent134,department10_university0_course2).
+name(department5_university0_graduatecourse15,graduatecourse15_rdf_plainliteral).
+takescourse(department3_university0_undergraduatestudent38,department3_university0_course3).
+telephone(department4_university0_graduatestudent21,xxx_xxx_xxxx_rdf_plainliteral).
+undergraduatedegreefrom(department1_university0_graduatestudent71,university562).
+takescourse(department5_university0_undergraduatestudent225,department5_university0_course6).
+name(department1_university0_undergraduatestudent26,undergraduatestudent26_rdf_plainliteral).
+name(department12_university0_undergraduatestudent262,undergraduatestudent262_rdf_plainliteral).
+memberof(department8_university0_graduatestudent89,department8_university0).
+takescourse(department6_university0_undergraduatestudent56,department6_university0_course59).
+subj2student(department5_university0_undergraduatestudent154).
+takescourse(department9_university0_undergraduatestudent146,department9_university0_course53).
+takescourse(department6_university0_graduatestudent80,department6_university0_graduatecourse3).
+takescourse(department1_university0_undergraduatestudent177,department1_university0_course41).
+takescourse(department10_university0_undergraduatestudent186,department10_university0_course5).
+telephone(department6_university0_undergraduatestudent165,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department11_university0_undergraduatestudent209,department11_university0_course9).
+emailaddress(department0_university0_undergraduatestudent395,undergraduatestudent395_department0_university0_edu_rdf_plainliteral).
+publicationauthor(department10_university0_associateprofessor0_publication4,department10_university0_associateprofessor0).
+telephone(department12_university0_undergraduatestudent378,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department7_university0_graduatestudent15,graduatestudent15_department7_university0_edu_rdf_plainliteral).
+name(department7_university0_graduatestudent44,graduatestudent44_rdf_plainliteral).
+takescourse(department0_university0_undergraduatestudent430,department0_university0_course21).
+university(university177).
+graduatecourse(department4_university0_graduatecourse9).
+undergraduatestudent(department0_university0_undergraduatestudent509).
+telephone(department5_university0_graduatestudent92,xxx_xxx_xxxx_rdf_plainliteral).
+advisor(department2_university0_graduatestudent58,department2_university0_assistantprofessor1).
+worksfor(department13_university0_lecturer6,department13_university0).
+name(department4_university0_undergraduatestudent74,undergraduatestudent74_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent26,department14_university0_course31).
+takescourse(department5_university0_undergraduatestudent289,department5_university0_course33).
+publicationauthor(department14_university0_fullprofessor0_publication0,department14_university0_graduatestudent53).
+university(university375).
+takescourse(department6_university0_undergraduatestudent90,department6_university0_course3).
+telephone(department14_university0_associateprofessor9,xxx_xxx_xxxx_rdf_plainliteral).
+advisor(department11_university0_graduatestudent127,department11_university0_fullprofessor1).
+takescourse(department6_university0_graduatestudent20,department6_university0_graduatecourse58).
+emailaddress(department9_university0_undergraduatestudent435,undergraduatestudent435_department9_university0_edu_rdf_plainliteral).
+subj13course(department13_university0_graduatecourse38).
+subj18student(department0_university0_undergraduatestudent73).
+takescourse(department13_university0_undergraduatestudent157,department13_university0_course31).
+name(department5_university0_associateprofessor3,associateprofessor3_rdf_plainliteral).
+takescourse(department3_university0_undergraduatestudent317,department3_university0_course5).
+name(department0_university0_graduatestudent125,graduatestudent125_rdf_plainliteral).
+publicationauthor(department11_university0_associateprofessor2_publication1,department11_university0_associateprofessor2).
+doctoraldegreefrom(department11_university0_assistantprofessor1,university648).
+publicationauthor(department2_university0_associateprofessor7_publication8,department2_university0_graduatestudent55).
+takescourse(department11_university0_graduatestudent9,department11_university0_graduatecourse4).
+worksfor(department4_university0_associateprofessor8,department4_university0).
+subj2student(department5_university0_undergraduatestudent125).
+publication(department5_university0_associateprofessor5_publication15).
+name(department1_university0_associateprofessor2_publication6,publication6_rdf_plainliteral).
+takescourse(department9_university0_undergraduatestudent491,department9_university0_course1).
+name(department4_university0_graduatestudent64,graduatestudent64_rdf_plainliteral).
+takescourse(department13_university0_undergraduatestudent25,department13_university0_course53).
+name(department1_university0_fullprofessor1_publication17,publication17_rdf_plainliteral).
+subj13student(department14_university0_undergraduatestudent321).
+name(department4_university0_graduatestudent65,graduatestudent65_rdf_plainliteral).
+publication(department6_university0_fullprofessor2_publication0).
+takescourse(department9_university0_undergraduatestudent441,department9_university0_course49).
+name(department1_university0_undergraduatestudent69,undergraduatestudent69_rdf_plainliteral).
+memberof(department10_university0_undergraduatestudent7,department10_university0).
+teacherof(department11_university0_fullprofessor3,department11_university0_course5).
+memberof(department14_university0_undergraduatestudent176,department14_university0).
+subj18student(department0_university0_undergraduatestudent222).
+name(department3_university0_assistantprofessor3_publication4,publication4_rdf_plainliteral).
+subj2professor(department12_university0_associateprofessor10).
+subj13student(department13_university0_graduatestudent16).
+emailaddress(department4_university0_undergraduatestudent228,undergraduatestudent228_department4_university0_edu_rdf_plainliteral).
+subj2student(department5_university0_undergraduatestudent155).
+takescourse(department7_university0_undergraduatestudent232,department7_university0_course43).
+undergraduatestudent(department7_university0_undergraduatestudent13).
+undergraduatedegreefrom(department6_university0_graduatestudent123,university755).
+mastersdegreefrom(department4_university0_fullprofessor8,university764).
+subj3student(department4_university0_undergraduatestudent312).
+publication(department3_university0_fullprofessor3_publication4).
+telephone(department7_university0_assistantprofessor9,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department7_university0_fullprofessor2_publication16,department7_university0_graduatestudent98).
+takescourse(department1_university0_undergraduatestudent237,department1_university0_course7).
+takescourse(department12_university0_undergraduatestudent85,department12_university0_course30).
+undergraduatestudent(department14_university0_undergraduatestudent127).
+takescourse(department0_university0_undergraduatestudent256,department0_university0_course46).
+emailaddress(department8_university0_undergraduatestudent240,undergraduatestudent240_department8_university0_edu_rdf_plainliteral).
+name(department2_university0_associateprofessor3_publication9,publication9_rdf_plainliteral).
+name(department14_university0_lecturer4_publication1,publication1_rdf_plainliteral).
+worksfor(department1_university0_fullprofessor8,department1_university0).
+publicationauthor(department14_university0_fullprofessor0_publication6,department14_university0_graduatestudent14).
+takescourse(department10_university0_undergraduatestudent329,department10_university0_course3).
+publicationauthor(department13_university0_associateprofessor8_publication1,department13_university0_associateprofessor8).
+publicationauthor(department10_university0_fullprofessor6_publication7,department10_university0_graduatestudent80).
+takescourse(department8_university0_undergraduatestudent119,department8_university0_course50).
+telephone(department9_university0_undergraduatestudent198,xxx_xxx_xxxx_rdf_plainliteral).
+undergraduatestudent(department0_university0_undergraduatestudent508).
+publicationauthor(department7_university0_assistantprofessor4_publication0,department7_university0_assistantprofessor4).
+undergraduatestudent(department0_university0_undergraduatestudent372).
+memberof(department7_university0_undergraduatestudent324,department7_university0).
+graduatestudent(department7_university0_graduatestudent78).
+name(department5_university0_undergraduatestudent259,undergraduatestudent259_rdf_plainliteral).
+takescourse(department5_university0_undergraduatestudent2,department5_university0_course31).
+name(department10_university0_undergraduatestudent334,undergraduatestudent334_rdf_plainliteral).
+subj2student(department12_university0_undergraduatestudent308).
+subj18student(department0_university0_graduatestudent122).
+name(department6_university0_undergraduatestudent32,undergraduatestudent32_rdf_plainliteral).
+takescourse(department5_university0_graduatestudent18,department5_university0_graduatecourse41).
+name(department8_university0_undergraduatestudent285,undergraduatestudent285_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent149,department14_university0_course30).
+subj2student(department7_university0_graduatestudent14).
+emailaddress(department2_university0_undergraduatestudent257,undergraduatestudent257_department2_university0_edu_rdf_plainliteral).
+emailaddress(department7_university0_undergraduatestudent237,undergraduatestudent237_department7_university0_edu_rdf_plainliteral).
+undergraduatestudent(department10_university0_undergraduatestudent271).
+memberof(department13_university0_undergraduatestudent12,department13_university0).
+takescourse(department2_university0_graduatestudent25,department2_university0_graduatecourse28).
+undergraduatestudent(department3_university0_undergraduatestudent283).
+name(department10_university0_associateprofessor7_publication11,publication11_rdf_plainliteral).
+name(department2_university0_associateprofessor4_publication3,publication3_rdf_plainliteral).
+name(department4_university0_fullprofessor8_publication1,publication1_rdf_plainliteral).
+telephone(department11_university0_undergraduatestudent180,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department2_university0_undergraduatestudent64,department2_university0_course51).
+takescourse(department14_university0_undergraduatestudent267,department14_university0_course33).
+telephone(department9_university0_undergraduatestudent30,xxx_xxx_xxxx_rdf_plainliteral).
+publication(department2_university0_associateprofessor10_publication7).
+subj1student(department6_university0_undergraduatestudent27).
+memberof(department10_university0_graduatestudent37,department10_university0).
+name(department7_university0_course14,course14_rdf_plainliteral).
+doctoraldegreefrom(department3_university0_assistantprofessor3,university345).
+undergraduatestudent(department9_university0_undergraduatestudent447).
+publicationauthor(department12_university0_associateprofessor0_publication12,department12_university0_graduatestudent81).
+takescourse(department2_university0_undergraduatestudent48,department2_university0_course50).
+emailaddress(department4_university0_undergraduatestudent276,undergraduatestudent276_department4_university0_edu_rdf_plainliteral).
+undergraduatestudent(department0_university0_undergraduatestudent461).
+undergraduatestudent(department2_university0_undergraduatestudent158).
+publication(department3_university0_assistantprofessor6_publication4).
+takescourse(department1_university0_undergraduatestudent251,department1_university0_course42).
+memberof(department11_university0_undergraduatestudent245,department11_university0).
+publicationauthor(department12_university0_fullprofessor5_publication2,department12_university0_fullprofessor5).
+graduatestudent(department11_university0_graduatestudent6).
+undergraduatestudent(department12_university0_undergraduatestudent410).
+memberof(department13_university0_graduatestudent107,department13_university0).
+course(department4_university0_course2).
+subj2student(department8_university0_undergraduatestudent12).
+doctoraldegreefrom(department0_university0_fullprofessor1,university730).
+name(department14_university0_graduatestudent94,graduatestudent94_rdf_plainliteral).
+takescourse(department8_university0_undergraduatestudent208,department8_university0_course0).
+subj2student(department1_university0_graduatestudent11).
+emailaddress(department7_university0_undergraduatestudent186,undergraduatestudent186_department7_university0_edu_rdf_plainliteral).
+memberof(department4_university0_undergraduatestudent54,department4_university0).
+graduatestudent(department0_university0_graduatestudent57).
+memberof(department14_university0_undergraduatestudent296,department14_university0).
+publicationauthor(department8_university0_associateprofessor3_publication3,department8_university0_graduatestudent21).
+university(university668).
+name(department11_university0_undergraduatestudent369,undergraduatestudent369_rdf_plainliteral).
+publicationauthor(department1_university0_fullprofessor1_publication14,department1_university0_fullprofessor1).
+name(department11_university0_undergraduatestudent58,undergraduatestudent58_rdf_plainliteral).
+memberof(department5_university0_graduatestudent24,department5_university0).
+memberof(department0_university0_graduatestudent10,department0_university0).
+takescourse(department6_university0_undergraduatestudent342,department6_university0_course3).
+university(university954).
+takescourse(department5_university0_undergraduatestudent63,department5_university0_course1).
+publication(department7_university0_fullprofessor1_publication3).
+memberof(department4_university0_graduatestudent91,department4_university0).
+telephone(department2_university0_graduatestudent21,xxx_xxx_xxxx_rdf_plainliteral).
+name(department14_university0_graduatestudent91,graduatestudent91_rdf_plainliteral).
+emailaddress(department1_university0_undergraduatestudent288,undergraduatestudent288_department1_university0_edu_rdf_plainliteral).
+telephone(department0_university0_undergraduatestudent248,xxx_xxx_xxxx_rdf_plainliteral).
+name(department12_university0_undergraduatestudent191,undergraduatestudent191_rdf_plainliteral).
+subj18student(department2_university0_undergraduatestudent122).
+name(department14_university0_associateprofessor9_publication6,publication6_rdf_plainliteral).
+telephone(department9_university0_undergraduatestudent496,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department11_university0_undergraduatestudent177,department11_university0_course30).
+takescourse(department9_university0_undergraduatestudent207,department9_university0_course42).
+undergraduatedegreefrom(department3_university0_graduatestudent119,university550).
+graduatecourse(department11_university0_graduatecourse48).
+graduatecourse(department9_university0_graduatecourse33).
+worksfor(department7_university0_associateprofessor10,department7_university0).
+advisor(department11_university0_graduatestudent51,department11_university0_associateprofessor7).
+publicationauthor(department2_university0_associateprofessor4_publication0,department2_university0_graduatestudent76).
+emailaddress(department5_university0_undergraduatestudent222,undergraduatestudent222_department5_university0_edu_rdf_plainliteral).
+publicationauthor(department0_university0_fullprofessor8_publication12,department0_university0_graduatestudent118).
+name(department10_university0_undergraduatestudent252,undergraduatestudent252_rdf_plainliteral).
+subj18student(department11_university0_graduatestudent43).
+telephone(department9_university0_graduatestudent10,xxx_xxx_xxxx_rdf_plainliteral).
+memberof(department11_university0_undergraduatestudent460,department11_university0).
+publicationauthor(department5_university0_associateprofessor7_publication11,department5_university0_graduatestudent87).
+name(department7_university0_undergraduatestudent205,undergraduatestudent205_rdf_plainliteral).
+teachingassistantof(department0_university0_graduatestudent129,department0_university0_course49).
+subj2student(department5_university0_undergraduatestudent213).
+publication(department9_university0_fullprofessor2_publication5).
+emailaddress(department8_university0_undergraduatestudent99,undergraduatestudent99_department8_university0_edu_rdf_plainliteral).
+name(department7_university0_graduatestudent78,graduatestudent78_rdf_plainliteral).
+subj1student(department6_university0_undergraduatestudent292).
+subj3student(department4_university0_graduatestudent66).
+publicationauthor(department7_university0_assistantprofessor9_publication6,department7_university0_assistantprofessor9).
+takescourse(department14_university0_undergraduatestudent300,department14_university0_course48).
+name(department7_university0_undergraduatestudent70,undergraduatestudent70_rdf_plainliteral).
+memberof(department9_university0_graduatestudent130,department9_university0).
+takescourse(department8_university0_undergraduatestudent211,department8_university0_course27).
+advisor(department9_university0_graduatestudent140,department9_university0_associateprofessor7).
+name(department3_university0_undergraduatestudent211,undergraduatestudent211_rdf_plainliteral).
+name(department4_university0_graduatestudent52,graduatestudent52_rdf_plainliteral).
+publicationauthor(department4_university0_associateprofessor10_publication10,department4_university0_graduatestudent67).
+publication(department8_university0_associateprofessor4_publication2).
+takescourse(department5_university0_undergraduatestudent258,department5_university0_course19).
+telephone(department0_university0_undergraduatestudent214,xxx_xxx_xxxx_rdf_plainliteral).
+undergraduatestudent(department12_university0_undergraduatestudent197).
+takescourse(department3_university0_graduatestudent83,department3_university0_graduatecourse23).
+publication(department5_university0_fullprofessor2_publication5).
+suborganizationof(department12_university0_researchgroup16,department12_university0).
+undergraduatestudent(department14_university0_undergraduatestudent12).
+takescourse(department10_university0_undergraduatestudent174,department10_university0_course35).
+subj16student(department9_university0_graduatestudent60).
+publication(department9_university0_fullprofessor8_publication1).
+course(department13_university0_course47).
+takescourse(department11_university0_undergraduatestudent175,department11_university0_course24).
+teachingassistantof(department1_university0_graduatestudent10,department1_university0_course39).
+publication(department5_university0_assistantprofessor6_publication4).
+publication(department4_university0_associateprofessor6_publication5).
+name(department9_university0_assistantprofessor3_publication1,publication1_rdf_plainliteral).
+name(department0_university0_undergraduatestudent219,undergraduatestudent219_rdf_plainliteral).
+name(department11_university0_assistantprofessor6,assistantprofessor6_rdf_plainliteral).
+subj16student(department9_university0_undergraduatestudent267).
+takescourse(department5_university0_undergraduatestudent243,department5_university0_course27).
+takescourse(department14_university0_undergraduatestudent320,department14_university0_course33).
+publicationauthor(department9_university0_fullprofessor4_publication8,department9_university0_fullprofessor4).
+name(department14_university0_undergraduatestudent247,undergraduatestudent247_rdf_plainliteral).
+publication(department8_university0_associateprofessor2_publication10).
+memberof(department14_university0_undergraduatestudent342,department14_university0).
+emailaddress(department6_university0_graduatestudent106,graduatestudent106_department6_university0_edu_rdf_plainliteral).
+emailaddress(department9_university0_undergraduatestudent183,undergraduatestudent183_department9_university0_edu_rdf_plainliteral).
+telephone(department9_university0_undergraduatestudent426,xxx_xxx_xxxx_rdf_plainliteral).
+undergraduatestudent(department4_university0_undergraduatestudent74).
+undergraduatedegreefrom(department11_university0_graduatestudent56,university832).
+undergraduatedegreefrom(department6_university0_graduatestudent109,university253).
+name(department13_university0_associateprofessor7_publication11,publication11_rdf_plainliteral).
+undergraduatestudent(department7_university0_undergraduatestudent147).
+takescourse(department8_university0_undergraduatestudent215,department8_university0_course27).
+publicationauthor(department1_university0_associateprofessor4_publication3,department1_university0_associateprofessor4).
+publicationauthor(department0_university0_associateprofessor7_publication9,department0_university0_associateprofessor7).
+takescourse(department8_university0_undergraduatestudent197,department8_university0_course13).
+subj16student(department9_university0_undergraduatestudent108).
+emailaddress(department8_university0_undergraduatestudent301,undergraduatestudent301_department8_university0_edu_rdf_plainliteral).
+takescourse(department4_university0_undergraduatestudent26,department4_university0_course51).
+memberof(department5_university0_undergraduatestudent77,department5_university0).
+graduatestudent(department6_university0_graduatestudent110).
+publication(department9_university0_fullprofessor2_publication3).
+name(department1_university0_undergraduatestudent334,undergraduatestudent334_rdf_plainliteral).
+subj1student(department6_university0_undergraduatestudent307).
+subj2course(department12_university0_course16).
+takescourse(department14_university0_undergraduatestudent199,department14_university0_course45).
+graduatestudent(department3_university0_graduatestudent11).
+researchinterest(department3_university0_associateprofessor10,research11_rdf_plainliteral).
+takescourse(department10_university0_undergraduatestudent401,department10_university0_course47).
+subj2student(department8_university0_undergraduatestudent162).
+takescourse(department13_university0_graduatestudent52,department13_university0_graduatecourse5).
+takescourse(department12_university0_graduatestudent27,department12_university0_graduatecourse14).
+emailaddress(department0_university0_undergraduatestudent32,undergraduatestudent32_department0_university0_edu_rdf_plainliteral).
+publicationauthor(department7_university0_fullprofessor7_publication12,department7_university0_graduatestudent99).
+memberof(department11_university0_graduatestudent65,department11_university0).
+name(department1_university0_graduatestudent47,graduatestudent47_rdf_plainliteral).
+graduatestudent(department10_university0_graduatestudent66).
+name(department4_university0_fullprofessor0_publication8,publication8_rdf_plainliteral).
+advisor(department0_university0_undergraduatestudent151,department0_university0_fullprofessor0).
+undergraduatedegreefrom(department1_university0_associateprofessor1,university317).
+takescourse(department2_university0_undergraduatestudent22,department2_university0_course37).
+publicationauthor(department10_university0_associateprofessor6_publication11,department10_university0_associateprofessor6).
+publication(department8_university0_fullprofessor1_publication2).
+emailaddress(department10_university0_graduatestudent106,graduatestudent106_department10_university0_edu_rdf_plainliteral).
+undergraduatedegreefrom(department14_university0_assistantprofessor0,university203).
+teacherof(department2_university0_associateprofessor1,department2_university0_graduatecourse13).
+subj2course(department7_university0_course42).
+memberof(department5_university0_graduatestudent6,department5_university0).
+name(department11_university0_graduatestudent79,graduatestudent79_rdf_plainliteral).
+takescourse(department13_university0_graduatestudent84,department13_university0_graduatecourse22).
+undergraduatestudent(department10_university0_undergraduatestudent68).
+takescourse(department8_university0_graduatestudent115,department8_university0_graduatecourse1).
+undergraduatedegreefrom(department1_university0_graduatestudent48,university115).
+publicationauthor(department2_university0_associateprofessor2_publication6,department2_university0_associateprofessor2).
+name(department12_university0_associateprofessor8_publication5,publication5_rdf_plainliteral).
+subj18student(department11_university0_undergraduatestudent362).
+takescourse(department3_university0_undergraduatestudent160,department3_university0_course41).
+takescourse(department12_university0_undergraduatestudent50,department12_university0_course8).
+takescourse(department12_university0_undergraduatestudent233,department12_university0_course13).
+takescourse(department7_university0_undergraduatestudent34,department7_university0_course31).
+emailaddress(department6_university0_undergraduatestudent297,undergraduatestudent297_department6_university0_edu_rdf_plainliteral).
+advisor(department7_university0_undergraduatestudent305,department7_university0_associateprofessor8).
+takescourse(department5_university0_undergraduatestudent54,department5_university0_course16).
+graduatestudent(department0_university0_graduatestudent136).
+telephone(department11_university0_undergraduatestudent427,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department0_university0_undergraduatestudent412,department0_university0_course57).
+subj2student(department5_university0_graduatestudent36).
+name(department0_university0_undergraduatestudent391,undergraduatestudent391_rdf_plainliteral).
+publicationauthor(department5_university0_fullprofessor3_publication11,department5_university0_graduatestudent13).
+telephone(department1_university0_undergraduatestudent218,xxx_xxx_xxxx_rdf_plainliteral).
+publication(department5_university0_assistantprofessor2_publication9).
+subj18student(department11_university0_undergraduatestudent330).
+name(department6_university0_associateprofessor4_publication0,publication0_rdf_plainliteral).
+undergraduatedegreefrom(department2_university0_graduatestudent50,university966).
+undergraduatestudent(department14_university0_undergraduatestudent207).
+publicationauthor(department11_university0_fullprofessor5_publication5,department11_university0_fullprofessor5).
+name(department9_university0_fullprofessor6_publication4,publication4_rdf_plainliteral).
+name(department10_university0_graduatestudent88,graduatestudent88_rdf_plainliteral).
+name(department9_university0_fullprofessor3_publication0,publication0_rdf_plainliteral).
+teacherof(department7_university0_lecturer5,department7_university0_graduatecourse56).
+publicationauthor(department11_university0_assistantprofessor2_publication9,department11_university0_graduatestudent122).
+publication(department10_university0_associateprofessor6_publication6).
+takescourse(department4_university0_undergraduatestudent80,department4_university0_course1).
+teacherof(department11_university0_fullprofessor6,department11_university0_course10).
+publicationauthor(department6_university0_associateprofessor9_publication7,department6_university0_associateprofessor9).
+takescourse(department0_university0_undergraduatestudent306,department0_university0_course9).
+telephone(department5_university0_graduatestudent23,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department4_university0_undergraduatestudent39,undergraduatestudent39_department4_university0_edu_rdf_plainliteral).
+memberof(department9_university0_undergraduatestudent243,department9_university0).
+publication(department1_university0_associateprofessor4_publication7).
+memberof(department2_university0_undergraduatestudent278,department2_university0).
+name(department9_university0_graduatestudent96,graduatestudent96_rdf_plainliteral).
+telephone(department12_university0_undergraduatestudent33,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department1_university0_fullprofessor0_publication12,department1_university0_fullprofessor0).
+publicationauthor(department10_university0_associateprofessor13_publication1,department10_university0_associateprofessor13).
+teacherof(department4_university0_associateprofessor1,department4_university0_graduatecourse20).
+teacherof(department11_university0_associateprofessor11,department11_university0_graduatecourse30).
+name(department1_university0_fullprofessor4_publication1,publication1_rdf_plainliteral).
+emailaddress(department0_university0_undergraduatestudent178,undergraduatestudent178_department0_university0_edu_rdf_plainliteral).
+graduatestudent(department6_university0_graduatestudent23).
+memberof(department0_university0_undergraduatestudent506,department0_university0).
+subj13student(department13_university0_undergraduatestudent228).
+takescourse(department4_university0_undergraduatestudent109,department4_university0_course19).
+undergraduatedegreefrom(department0_university0_graduatestudent60,university606).
+undergraduatedegreefrom(department11_university0_fullprofessor5,university594).
+takescourse(department5_university0_undergraduatestudent156,department5_university0_course43).
+takescourse(department2_university0_undergraduatestudent125,department2_university0_course34).
+telephone(department13_university0_undergraduatestudent110,xxx_xxx_xxxx_rdf_plainliteral).
+graduatestudent(department5_university0_graduatestudent105).
+publication(department9_university0_fullprofessor4_publication5).
+takescourse(department3_university0_undergraduatestudent194,department3_university0_course42).
+emailaddress(department12_university0_undergraduatestudent165,undergraduatestudent165_department12_university0_edu_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent38,department14_university0_course37).
+name(department6_university0_associateprofessor9_publication11,publication11_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent312,department12_university0_course4).
+publication(department3_university0_associateprofessor6_publication11).
+name(department7_university0_course1,course1_rdf_plainliteral).
+advisor(department5_university0_undergraduatestudent35,department5_university0_associateprofessor8).
+subj12student(department3_university0_graduatestudent92).
+emailaddress(department12_university0_undergraduatestudent391,undergraduatestudent391_department12_university0_edu_rdf_plainliteral).
+course(department5_university0_course45).
+name(department12_university0_assistantprofessor4_publication5,publication5_rdf_plainliteral).
+name(department7_university0_undergraduatestudent93,undergraduatestudent93_rdf_plainliteral).
+advisor(department7_university0_graduatestudent132,department7_university0_assistantprofessor4).
+name(department7_university0_fullprofessor2_publication17,publication17_rdf_plainliteral).
+publicationauthor(department10_university0_associateprofessor1_publication3,department10_university0_graduatestudent24).
+publication(department6_university0_fullprofessor3_publication4).
+publicationauthor(department11_university0_associateprofessor3_publication9,department11_university0_associateprofessor3).
+name(department8_university0_assistantprofessor8_publication4,publication4_rdf_plainliteral).
+publication(department5_university0_assistantprofessor6_publication0).
+publicationauthor(department1_university0_fullprofessor5_publication10,department1_university0_fullprofessor5).
+takescourse(department5_university0_undergraduatestudent277,department5_university0_course0).
+takescourse(department5_university0_undergraduatestudent168,department5_university0_course35).
+subj17student(department10_university0_undergraduatestudent133).
+takescourse(department0_university0_undergraduatestudent499,department0_university0_course49).
+publication(department11_university0_associateprofessor9_publication4).
+emailaddress(department4_university0_undergraduatestudent227,undergraduatestudent227_department4_university0_edu_rdf_plainliteral).
+undergraduatestudent(department8_university0_undergraduatestudent53).
+advisor(department8_university0_graduatestudent37,department8_university0_assistantprofessor0).
+subj1student(department6_university0_undergraduatestudent88).
+name(department14_university0_associateprofessor7_publication4,publication4_rdf_plainliteral).
+memberof(department14_university0_undergraduatestudent193,department14_university0).
+name(department7_university0_undergraduatestudent305,undergraduatestudent305_rdf_plainliteral).
+telephone(department6_university0_undergraduatestudent170,xxx_xxx_xxxx_rdf_plainliteral).
+fullprofessor(department0_university0_fullprofessor9).
+name(department2_university0_undergraduatestudent214,undergraduatestudent214_rdf_plainliteral).
+university(university115).
+takescourse(department10_university0_graduatestudent91,department10_university0_graduatecourse41).
+takescourse(department7_university0_graduatestudent41,department7_university0_graduatecourse22).
+telephone(department13_university0_undergraduatestudent96,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department14_university0_lecturer1_publication0,department14_university0_lecturer1).
+researchinterest(department8_university0_assistantprofessor3,research19_rdf_plainliteral).
+publicationauthor(department5_university0_fullprofessor6_publication14,department5_university0_fullprofessor6).
+publication(department6_university0_assistantprofessor2_publication3).
+researchassistant(department13_university0_graduatestudent109).
+name(department6_university0_undergraduatestudent373,undergraduatestudent373_rdf_plainliteral).
+emailaddress(department0_university0_undergraduatestudent262,undergraduatestudent262_department0_university0_edu_rdf_plainliteral).
+telephone(department8_university0_undergraduatestudent239,xxx_xxx_xxxx_rdf_plainliteral).
+name(department7_university0_undergraduatestudent195,undergraduatestudent195_rdf_plainliteral).
+name(department12_university0_associateprofessor10_publication3,publication3_rdf_plainliteral).
+publicationauthor(department2_university0_associateprofessor0_publication5,department2_university0_graduatestudent91).
+telephone(department4_university0_undergraduatestudent292,xxx_xxx_xxxx_rdf_plainliteral).
+name(department0_university0_associateprofessor12_publication5,publication5_rdf_plainliteral).
+publication(department13_university0_associateprofessor4_publication8).
+name(department0_university0_undergraduatestudent43,undergraduatestudent43_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent333,department14_university0_course30).
+memberof(department10_university0_undergraduatestudent138,department10_university0).
+emailaddress(department0_university0_graduatestudent123,graduatestudent123_department0_university0_edu_rdf_plainliteral).
+publicationauthor(department2_university0_assistantprofessor9_publication5,department2_university0_assistantprofessor9).
+undergraduatestudent(department11_university0_undergraduatestudent106).
+takescourse(department6_university0_undergraduatestudent262,department6_university0_course49).
+publicationauthor(department6_university0_associateprofessor8_publication0,department6_university0_associateprofessor8).
+takescourse(department0_university0_undergraduatestudent283,department0_university0_course29).
+name(department5_university0_assistantprofessor5_publication3,publication3_rdf_plainliteral).
+emailaddress(department5_university0_undergraduatestudent215,undergraduatestudent215_department5_university0_edu_rdf_plainliteral).
+telephone(department7_university0_undergraduatestudent216,xxx_xxx_xxxx_rdf_plainliteral).
+course(department5_university0_course11).
+advisor(department6_university0_undergraduatestudent89,department6_university0_assistantprofessor5).
+subj18course(department2_university0_course5).
+undergraduatestudent(department9_university0_undergraduatestudent80).
+telephone(department1_university0_associateprofessor7,xxx_xxx_xxxx_rdf_plainliteral).
+publication(department0_university0_associateprofessor10_publication11).
+publicationauthor(department2_university0_fullprofessor7_publication4,department2_university0_fullprofessor7).
+name(department13_university0_fullprofessor4_publication5,publication5_rdf_plainliteral).
+memberof(department8_university0_undergraduatestudent164,department8_university0).
+takescourse(department7_university0_undergraduatestudent153,department7_university0_course7).
+subj3student(department4_university0_graduatestudent97).
+telephone(department2_university0_undergraduatestudent152,xxx_xxx_xxxx_rdf_plainliteral).
+name(department0_university0_undergraduatestudent335,undergraduatestudent335_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent113,department14_university0_course12).
+takescourse(department6_university0_undergraduatestudent30,department6_university0_course33).
+emailaddress(department11_university0_undergraduatestudent247,undergraduatestudent247_department11_university0_edu_rdf_plainliteral).
+memberof(department6_university0_undergraduatestudent6,department6_university0).
+takescourse(department12_university0_undergraduatestudent199,department12_university0_course51).
+memberof(department11_university0_graduatestudent61,department11_university0).
+takescourse(department6_university0_undergraduatestudent300,department6_university0_course6).
+publicationauthor(department5_university0_associateprofessor1_publication1,department5_university0_associateprofessor1).
+telephone(department9_university0_undergraduatestudent91,xxx_xxx_xxxx_rdf_plainliteral).
+telephone(department9_university0_undergraduatestudent375,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department0_university0_associateprofessor10_publication2,department0_university0_associateprofessor10).
+emailaddress(department12_university0_undergraduatestudent372,undergraduatestudent372_department12_university0_edu_rdf_plainliteral).
+researchassistant(department12_university0_graduatestudent43).
+takescourse(department13_university0_undergraduatestudent72,department13_university0_course20).
+graduatestudent(department0_university0_graduatestudent119).
+name(department8_university0_undergraduatestudent97,undergraduatestudent97_rdf_plainliteral).
+subj18course(department0_university0_graduatecourse53).
+undergraduatedegreefrom(department10_university0_graduatestudent77,university21).
+name(department10_university0_undergraduatestudent350,undergraduatestudent350_rdf_plainliteral).
+telephone(department3_university0_undergraduatestudent160,xxx_xxx_xxxx_rdf_plainliteral).
+university(university389).
+subj17course(department10_university0_graduatecourse48).
+subj13student(department13_university0_undergraduatestudent263).
+memberof(department7_university0_undergraduatestudent287,department7_university0).
+emailaddress(department10_university0_undergraduatestudent84,undergraduatestudent84_department10_university0_edu_rdf_plainliteral).
+name(department14_university0_graduatestudent41,graduatestudent41_rdf_plainliteral).
+doctoraldegreefrom(department1_university0_lecturer2,university704).
+undergraduatedegreefrom(department12_university0_graduatestudent38,university536).
+emailaddress(department11_university0_undergraduatestudent385,undergraduatestudent385_department11_university0_edu_rdf_plainliteral).
+name(department10_university0_course45,course45_rdf_plainliteral).
+emailaddress(department7_university0_undergraduatestudent99,undergraduatestudent99_department7_university0_edu_rdf_plainliteral).
+publicationauthor(department1_university0_fullprofessor5_publication13,department1_university0_fullprofessor5).
+subj16student(department9_university0_undergraduatestudent162).
+advisor(department1_university0_graduatestudent58,department1_university0_associateprofessor1).
+subj17student(department10_university0_undergraduatestudent22).
+undergraduatestudent(department9_university0_undergraduatestudent85).
+publicationauthor(department3_university0_fullprofessor7_publication8,department3_university0_graduatestudent72).
+takescourse(department4_university0_undergraduatestudent90,department4_university0_course8).
+name(department0_university0_associateprofessor0_publication16,publication16_rdf_plainliteral).
+telephone(department0_university0_graduatestudent86,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department4_university0_fullprofessor3_publication4,department4_university0_fullprofessor3).
+publicationauthor(department4_university0_fullprofessor0_publication2,department4_university0_graduatestudent116).
+publication(department13_university0_assistantprofessor4_publication1).
+name(department12_university0_associateprofessor4_publication14,publication14_rdf_plainliteral).
+doctoraldegreefrom(department14_university0_associateprofessor2,university797).
+name(department4_university0_undergraduatestudent174,undergraduatestudent174_rdf_plainliteral).
+takescourse(department13_university0_undergraduatestudent49,department13_university0_course26).
+undergraduatedegreefrom(department11_university0_fullprofessor2,university367).
+takescourse(department9_university0_undergraduatestudent220,department9_university0_course24).
+name(department1_university0_undergraduatestudent59,undergraduatestudent59_rdf_plainliteral).
+takescourse(department9_university0_undergraduatestudent172,department9_university0_course9).
+takescourse(department14_university0_undergraduatestudent356,department14_university0_course21).
+name(department5_university0_graduatestudent33,graduatestudent33_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent88,department12_university0_course51).
+publicationauthor(department3_university0_associateprofessor6_publication1,department3_university0_associateprofessor6).
+memberof(department1_university0_undergraduatestudent137,department1_university0).
+name(department1_university0_associateprofessor5_publication5,publication5_rdf_plainliteral).
+name(department12_university0_course35,course35_rdf_plainliteral).
+telephone(department4_university0_graduatestudent113,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department2_university0_fullprofessor6_publication9,department2_university0_fullprofessor6).
+subj18course(department11_university0_graduatecourse26).
+name(department8_university0_fullprofessor7_publication12,publication12_rdf_plainliteral).
+name(department4_university0_associateprofessor8_publication8,publication8_rdf_plainliteral).
+telephone(department1_university0_graduatestudent23,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department2_university0_assistantprofessor9_publication9,department2_university0_graduatestudent108).
+name(department1_university0_graduatestudent10,graduatestudent10_rdf_plainliteral).
+graduatestudent(department7_university0_graduatestudent102).
+takescourse(department4_university0_undergraduatestudent61,department4_university0_course24).
+name(department1_university0_associateprofessor7_publication8,publication8_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent165,department12_university0_course12).
+name(department5_university0_assistantprofessor4_publication5,publication5_rdf_plainliteral).
+emailaddress(department3_university0_undergraduatestudent204,undergraduatestudent204_department3_university0_edu_rdf_plainliteral).
+mastersdegreefrom(department10_university0_associateprofessor7,university956).
+takescourse(department9_university0_graduatestudent31,department9_university0_graduatecourse8).
+takescourse(department9_university0_undergraduatestudent393,department9_university0_course40).
+memberof(department5_university0_graduatestudent46,department5_university0).
+name(department12_university0_graduatecourse28,graduatecourse28_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent181,department12_university0_course29).
+memberof(department14_university0_undergraduatestudent179,department14_university0).
+telephone(department9_university0_undergraduatestudent194,xxx_xxx_xxxx_rdf_plainliteral).
+name(department6_university0_undergraduatestudent0,undergraduatestudent0_rdf_plainliteral).
+subj12student(department3_university0_undergraduatestudent143).
+publication(department12_university0_assistantprofessor2_publication3).
+takescourse(department12_university0_undergraduatestudent330,department12_university0_course54).
+telephone(department13_university0_graduatestudent4,xxx_xxx_xxxx_rdf_plainliteral).
+name(department4_university0_associateprofessor0_publication10,publication10_rdf_plainliteral).
+advisor(department9_university0_undergraduatestudent519,department9_university0_associateprofessor9).
+subj18student(department11_university0_undergraduatestudent384).
+subj2student(department8_university0_undergraduatestudent2).
+subj18student(department11_university0_undergraduatestudent164).
+teacherof(department6_university0_assistantprofessor10,department6_university0_graduatecourse48).
+emailaddress(department2_university0_graduatestudent21,graduatestudent21_department2_university0_edu_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent30,department12_university0_course29).
+publication(department12_university0_fullprofessor4_publication8).
+memberof(department2_university0_undergraduatestudent256,department2_university0).
+takescourse(department5_university0_undergraduatestudent181,department5_university0_course30).
+takescourse(department6_university0_undergraduatestudent364,department6_university0_course4).
+subj13student(department13_university0_graduatestudent48).
+publication(department6_university0_associateprofessor8_publication10).
+publication(department10_university0_fullprofessor1_publication1).
+name(department0_university0_fullprofessor5_publication10,publication10_rdf_plainliteral).
+emailaddress(department10_university0_undergraduatestudent304,undergraduatestudent304_department10_university0_edu_rdf_plainliteral).
+name(department6_university0_graduatestudent120,graduatestudent120_rdf_plainliteral).
+advisor(department9_university0_graduatestudent91,department9_university0_associateprofessor3).
+memberof(department13_university0_undergraduatestudent238,department13_university0).
+undergraduatedegreefrom(department12_university0_graduatestudent116,university135).
+undergraduatestudent(department6_university0_undergraduatestudent295).
+emailaddress(department10_university0_undergraduatestudent260,undergraduatestudent260_department10_university0_edu_rdf_plainliteral).
+takescourse(department4_university0_graduatestudent118,department4_university0_graduatecourse47).
+publicationauthor(department6_university0_associateprofessor5_publication12,department6_university0_graduatestudent102).
+takescourse(department13_university0_undergraduatestudent288,department13_university0_course38).
+name(department11_university0_undergraduatestudent237,undergraduatestudent237_rdf_plainliteral).
+emailaddress(department9_university0_undergraduatestudent504,undergraduatestudent504_department9_university0_edu_rdf_plainliteral).
+name(department2_university0_assistantprofessor2_publication6,publication6_rdf_plainliteral).
+subj12student(department3_university0_undergraduatestudent200).
+takescourse(department3_university0_undergraduatestudent259,department3_university0_course31).
+takescourse(department13_university0_undergraduatestudent144,department13_university0_course2).
+takescourse(department9_university0_undergraduatestudent387,department9_university0_course5).
+telephone(department1_university0_graduatestudent9,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department12_university0_undergraduatestudent102,department12_university0_course30).
+takescourse(department2_university0_undergraduatestudent121,department2_university0_course0).
+publication(department12_university0_assistantprofessor2_publication2).
+takescourse(department9_university0_undergraduatestudent176,department9_university0_course14).
+name(department9_university0_undergraduatestudent54,undergraduatestudent54_rdf_plainliteral).
+emailaddress(department7_university0_graduatestudent103,graduatestudent103_department7_university0_edu_rdf_plainliteral).
+takescourse(department0_university0_undergraduatestudent333,department0_university0_course32).
+teachingassistant(department14_university0_graduatestudent41).
+memberof(department14_university0_undergraduatestudent120,department14_university0).
+name(department4_university0_undergraduatestudent131,undergraduatestudent131_rdf_plainliteral).
+takescourse(department1_university0_undergraduatestudent63,department1_university0_course1).
+emailaddress(department7_university0_undergraduatestudent117,undergraduatestudent117_department7_university0_edu_rdf_plainliteral).
+takescourse(department4_university0_undergraduatestudent263,department4_university0_course16).
+name(department11_university0_associateprofessor7,associateprofessor7_rdf_plainliteral).
+subj18student(department0_university0_undergraduatestudent133).
+memberof(department13_university0_undergraduatestudent50,department13_university0).
+memberof(department11_university0_undergraduatestudent441,department11_university0).
+telephone(department10_university0_undergraduatestudent166,xxx_xxx_xxxx_rdf_plainliteral).
+emailaddress(department9_university0_undergraduatestudent244,undergraduatestudent244_department9_university0_edu_rdf_plainliteral).
+publicationauthor(department10_university0_fullprofessor0_publication0,department10_university0_fullprofessor0).
+name(department14_university0_assistantprofessor0_publication7,publication7_rdf_plainliteral).
+takescourse(department6_university0_undergraduatestudent307,department6_university0_course35).
+takescourse(department4_university0_undergraduatestudent110,department4_university0_course33).
+mastersdegreefrom(department10_university0_associateprofessor5,university606).
+publicationauthor(department0_university0_fullprofessor7_publication3,department0_university0_fullprofessor7).
+emailaddress(department10_university0_undergraduatestudent289,undergraduatestudent289_department10_university0_edu_rdf_plainliteral).
+undergraduatestudent(department9_university0_undergraduatestudent461).
+subj3student(department4_university0_graduatestudent55).
+name(department12_university0_fullprofessor1_publication11,publication11_rdf_plainliteral).
+takescourse(department0_university0_graduatestudent44,department0_university0_graduatecourse4).
+name(department6_university0_undergraduatestudent124,undergraduatestudent124_rdf_plainliteral).
+publicationauthor(department5_university0_fullprofessor0_publication10,department5_university0_graduatestudent78).
+subj12course(department3_university0_graduatecourse8).
+emailaddress(department11_university0_associateprofessor11,associateprofessor11_department11_university0_edu_rdf_plainliteral).
+publicationauthor(department7_university0_assistantprofessor10_publication3,department7_university0_assistantprofessor10).
+subj18course(department0_university0_course29).
+memberof(department8_university0_graduatestudent99,department8_university0).
+name(department11_university0_fullprofessor3_publication8,publication8_rdf_plainliteral).
+takescourse(department10_university0_graduatestudent138,department10_university0_graduatecourse53).
+takescourse(department10_university0_graduatestudent61,department10_university0_graduatecourse43).
+subj2student(department12_university0_undergraduatestudent6).
+takescourse(department0_university0_graduatestudent61,department0_university0_graduatecourse53).
+publicationauthor(department7_university0_assistantprofessor1_publication0,department7_university0_graduatestudent131).
+telephone(department12_university0_undergraduatestudent161,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department0_university0_undergraduatestudent99,department0_university0_course22).
+subj13student(department14_university0_undergraduatestudent86).
+name(department4_university0_undergraduatestudent147,undergraduatestudent147_rdf_plainliteral).
+undergraduatestudent(department7_university0_undergraduatestudent41).
+takescourse(department11_university0_undergraduatestudent409,department11_university0_course39).
+memberof(department6_university0_undergraduatestudent331,department6_university0).
+undergraduatestudent(department9_university0_undergraduatestudent66).
+publication(department5_university0_fullprofessor3_publication7).
+undergraduatestudent(department13_university0_undergraduatestudent246).
+emailaddress(department2_university0_undergraduatestudent105,undergraduatestudent105_department2_university0_edu_rdf_plainliteral).
+publicationauthor(department8_university0_lecturer4_publication0,department8_university0_lecturer4).
+name(department13_university0_assistantprofessor4_publication3,publication3_rdf_plainliteral).
+advisor(department2_university0_graduatestudent80,department2_university0_assistantprofessor4).
+graduatestudent(department3_university0_graduatestudent59).
+publication(department2_university0_fullprofessor1_publication11).
+takescourse(department6_university0_undergraduatestudent100,department6_university0_course2).
+memberof(department9_university0_undergraduatestudent199,department9_university0).
+takescourse(department2_university0_undergraduatestudent50,department2_university0_course10).
+name(department9_university0_associateprofessor0,associateprofessor0_rdf_plainliteral).
+name(department14_university0_fullprofessor1_publication14,publication14_rdf_plainliteral).
+takescourse(department8_university0_undergraduatestudent320,department8_university0_course51).
+takescourse(department12_university0_undergraduatestudent5,department12_university0_course33).
+name(department1_university0_graduatecourse8,graduatecourse8_rdf_plainliteral).
+telephone(department4_university0_graduatestudent97,xxx_xxx_xxxx_rdf_plainliteral).
+name(department5_university0_associateprofessor8_publication5,publication5_rdf_plainliteral).
+publicationauthor(department3_university0_associateprofessor8_publication12,department3_university0_associateprofessor8).
+takescourse(department10_university0_undergraduatestudent73,department10_university0_course33).
+publicationauthor(department6_university0_fullprofessor8_publication2,department6_university0_fullprofessor8).
+name(department14_university0_fullprofessor4_publication18,publication18_rdf_plainliteral).
+name(department0_university0_course49,course49_rdf_plainliteral).
+takescourse(department4_university0_undergraduatestudent22,department4_university0_course16).
+memberof(department12_university0_undergraduatestudent302,department12_university0).
+undergraduatedegreefrom(department3_university0_assistantprofessor8,university614).
+takescourse(department6_university0_undergraduatestudent370,department6_university0_course61).
+memberof(department9_university0_undergraduatestudent376,department9_university0).
+undergraduatestudent(department12_university0_undergraduatestudent403).
+subj18student(department11_university0_graduatestudent129).
+name(department6_university0_fullprofessor7_publication9,publication9_rdf_plainliteral).
+takescourse(department1_university0_undergraduatestudent290,department1_university0_course18).
+graduatecourse(department12_university0_graduatecourse8).
+memberof(department10_university0_undergraduatestudent376,department10_university0).
+name(department0_university0_undergraduatestudent521,undergraduatestudent521_rdf_plainliteral).
+subj2student(department8_university0_undergraduatestudent114).
+takescourse(department7_university0_undergraduatestudent96,department7_university0_course27).
+emailaddress(department0_university0_associateprofessor9,associateprofessor9_department0_university0_edu_rdf_plainliteral).
+publicationauthor(department4_university0_fullprofessor7_publication5,department4_university0_graduatestudent146).
+takescourse(department0_university0_undergraduatestudent496,department0_university0_course46).
+emailaddress(department0_university0_undergraduatestudent380,undergraduatestudent380_department0_university0_edu_rdf_plainliteral).
+memberof(department1_university0_undergraduatestudent344,department1_university0).
+name(department2_university0_graduatecourse19,graduatecourse19_rdf_plainliteral).
+takescourse(department9_university0_undergraduatestudent223,department9_university0_course9).
+teachingassistant(department10_university0_graduatestudent66).
+undergraduatestudent(department8_university0_undergraduatestudent113).
+publicationauthor(department14_university0_associateprofessor5_publication10,department14_university0_associateprofessor5).
+publicationauthor(department13_university0_fullprofessor0_publication4,department13_university0_graduatestudent50).
+publication(department8_university0_fullprofessor3_publication13).
+doctoraldegreefrom(department6_university0_associateprofessor10,university560).
+takescourse(department8_university0_undergraduatestudent294,department8_university0_course34).
+name(department0_university0_undergraduatestudent194,undergraduatestudent194_rdf_plainliteral).
+teacherof(department9_university0_assistantprofessor5,department9_university0_graduatecourse47).
+name(department3_university0_undergraduatestudent222,undergraduatestudent222_rdf_plainliteral).
+publicationauthor(department14_university0_fullprofessor2_publication9,department14_university0_fullprofessor2).
+name(department4_university0_graduatestudent16,graduatestudent16_rdf_plainliteral).
+telephone(department0_university0_undergraduatestudent390,xxx_xxx_xxxx_rdf_plainliteral).
+publicationauthor(department4_university0_assistantprofessor0_publication4,department4_university0_assistantprofessor0).
+emailaddress(department10_university0_undergraduatestudent118,undergraduatestudent118_department10_university0_edu_rdf_plainliteral).
+telephone(department4_university0_graduatestudent39,xxx_xxx_xxxx_rdf_plainliteral).
+takescourse(department13_university0_undergraduatestudent251,department13_university0_course19).
+publicationauthor(department0_university0_fullprofessor3_publication14,department0_university0_graduatestudent77).
+publication(department8_university0_fullprofessor3_publication5).
+teachingassistant(department11_university0_graduatestudent91).
+publication(department4_university0_fullprofessor7_publication6).
+subj2student(department1_university0_undergraduatestudent174).
+publicationauthor(department6_university0_associateprofessor7_publication6,department6_university0_associateprofessor7).
+undergraduatestudent(department4_university0_undergraduatestudent157).
+emailaddress(department9_university0_undergraduatestudent395,undergraduatestudent395_department9_university0_edu_rdf_plainliteral).
+name(department0_university0_undergraduatestudent377,undergraduatestudent377_rdf_plainliteral).
+subj18student(department11_university0_graduatestudent86).
+memberof(department6_university0_graduatestudent35,department6_university0).
+emailaddress(department4_university0_undergraduatestudent149,undergraduatestudent149_department4_university0_edu_rdf_plainliteral).
+name(department13_university0_graduatestudent35,graduatestudent35_rdf_plainliteral).
+undergraduatedegreefrom(department2_university0_graduatestudent31,university283).
+publicationauthor(department10_university0_fullprofessor1_publication13,department10_university0_graduatestudent103).
+emailaddress(department5_university0_undergraduatestudent24,undergraduatestudent24_department5_university0_edu_rdf_plainliteral).
+telephone(department7_university0_undergraduatestudent87,xxx_xxx_xxxx_rdf_plainliteral).
+subj1student(department6_university0_undergraduatestudent204).
+name(department13_university0_associateprofessor8_publication1,publication1_rdf_plainliteral).
+worksfor(department0_university0_lecturer4,department0_university0).
+name(department2_university0_undergraduatestudent150,undergraduatestudent150_rdf_plainliteral).
+name(department2_university0_graduatestudent30,graduatestudent30_rdf_plainliteral).
+takescourse(department1_university0_undergraduatestudent326,department1_university0_course4).
+undergraduatestudent(department0_university0_undergraduatestudent485).
+takescourse(department11_university0_graduatestudent18,department11_university0_graduatecourse46).
+takescourse(department4_university0_undergraduatestudent86,department4_university0_course1).
+takescourse(department4_university0_graduatestudent31,department4_university0_graduatecourse15).
+publicationauthor(department4_university0_fullprofessor8_publication1,department4_university0_graduatestudent18).
+memberof(department11_university0_undergraduatestudent387,department11_university0).
+researchassistant(department3_university0_graduatestudent118).
+course(department8_university0_course16).
+memberof(department10_university0_graduatestudent109,department10_university0).
+lecturer(department4_university0_lecturer4).
+name(department3_university0_fullprofessor6_publication7,publication7_rdf_plainliteral).
+name(department11_university0_fullprofessor4_publication7,publication7_rdf_plainliteral).
+graduatestudent(department2_university0_graduatestudent101).
+subj13student(department14_university0_undergraduatestudent395).
+emailaddress(department10_university0_graduatestudent84,graduatestudent84_department10_university0_edu_rdf_plainliteral).
+takescourse(department14_university0_undergraduatestudent284,department14_university0_course36).
+advisor(department13_university0_graduatestudent63,department13_university0_associateprofessor9).
+emailaddress(department7_university0_undergraduatestudent170,undergraduatestudent170_department7_university0_edu_rdf_plainliteral).
+subj1course(department6_university0_graduatecourse15).
+takescourse(department0_university0_undergraduatestudent90,department0_university0_course40).
+teacherof(department11_university0_associateprofessor10,department11_university0_graduatecourse28).
+graduatecourse(department9_university0_graduatecourse0).
+publicationauthor(department3_university0_associateprofessor4_publication10,department3_university0_associateprofessor4).
+publication(department13_university0_associateprofessor3_publication5).
+takescourse(department4_university0_undergraduatestudent180,department4_university0_course51).
+takescourse(department4_university0_graduatestudent131,department4_university0_graduatecourse50).
+undergraduatedegreefrom(department10_university0_graduatestudent114,university903).
+takescourse(department6_university0_undergraduatestudent194,department6_university0_course33).
+name(department10_university0_undergraduatestudent278,undergraduatestudent278_rdf_plainliteral).
+subj17student(department10_university0_undergraduatestudent243).
+name(department2_university0_associateprofessor3_publication17,publication17_rdf_plainliteral).
+graduatecourse(department4_university0_graduatecourse38).
+publicationauthor(department2_university0_assistantprofessor5_publication4,department2_university0_assistantprofessor5).
+researchinterest(department0_university0_associateprofessor8,research23_rdf_plainliteral).
+publication(department10_university0_associateprofessor10_publication5).
+undergraduatedegreefrom(department10_university0_lecturer5,university999).
+advisor(department12_university0_graduatestudent34,department12_university0_fullprofessor0).
+takescourse(department5_university0_undergraduatestudent147,department5_university0_course16).
+subj18student(department0_university0_undergraduatestudent234).
+teachingassistantof(department10_university0_graduatestudent83,department10_university0_course7).
+name(department7_university0_associateprofessor3_publication14,publication14_rdf_plainliteral).
+emailaddress(department1_university0_fullprofessor2,fullprofessor2_department1_university0_edu_rdf_plainliteral).
+name(department4_university0_undergraduatestudent234,undergraduatestudent234_rdf_plainliteral).
+takescourse(department13_university0_undergraduatestudent261,department13_university0_course49).
+emailaddress(department9_university0_undergraduatestudent189,undergraduatestudent189_department9_university0_edu_rdf_plainliteral).
+emailaddress(department8_university0_undergraduatestudent253,undergraduatestudent253_department8_university0_edu_rdf_plainliteral).
+publication(department5_university0_fullprofessor1_publication15).
+memberof(department9_university0_graduatestudent33,department9_university0).
+takescourse(department4_university0_undergraduatestudent109,department4_university0_course53).
+emailaddress(department13_university0_undergraduatestudent48,undergraduatestudent48_department13_university0_edu_rdf_plainliteral).
+memberof(department5_university0_undergraduatestudent167,department5_university0).
+subj2student(department1_university0_undergraduatestudent151).
+telephone(department13_university0_associateprofessor8,xxx_xxx_xxxx_rdf_plainliteral).
+name(department14_university0_undergraduatestudent326,undergraduatestudent326_rdf_plainliteral).
+publicationauthor(department11_university0_lecturer4_publication0,department11_university0_graduatestudent75).
+university(university849).
+graduatestudent(department3_university0_graduatestudent112).
+takescourse(department11_university0_undergraduatestudent195,department11_university0_course54).
+takescourse(department11_university0_undergraduatestudent396,department11_university0_course28).
+name(department8_university0_undergraduatestudent163,undergraduatestudent163_rdf_plainliteral).
+takescourse(department13_university0_graduatestudent99,department13_university0_graduatecourse1).
+takescourse(department9_university0_undergraduatestudent515,department9_university0_course53).
+publication(department6_university0_associateprofessor7_publication3).
+name(department12_university0_associateprofessor5_publication2,publication2_rdf_plainliteral).
+takescourse(department4_university0_graduatestudent8,department4_university0_graduatecourse22).
+publicationauthor(department12_university0_fullprofessor6_publication14,department12_university0_graduatestudent130).
+emailaddress(department14_university0_undergraduatestudent109,undergraduatestudent109_department14_university0_edu_rdf_plainliteral).
+name(department14_university0_course8,course8_rdf_plainliteral).
+telephone(department10_university0_undergraduatestudent6,xxx_xxx_xxxx_rdf_plainliteral).
+memberof(department0_university0_undergraduatestudent118,department0_university0).
+suborganizationof(department8_university0_researchgroup5,department8_university0).
+graduatestudent(department11_university0_graduatestudent60).
+name(department10_university0_fullprofessor5_publication0,publication0_rdf_plainliteral).
+telephone(department13_university0_graduatestudent68,xxx_xxx_xxxx_rdf_plainliteral).
+name(department0_university0_graduatestudent43,graduatestudent43_rdf_plainliteral).
+takescourse(department9_university0_undergraduatestudent430,department9_university0_course32).
+name(department1_university0_graduatecourse29,graduatecourse29_rdf_plainliteral).

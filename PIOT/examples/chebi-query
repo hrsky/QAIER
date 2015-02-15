@@ -1,0 +1,1 @@
+acetate(X) hasAtom(X,Y) bond(Y,Z) c(Z)
